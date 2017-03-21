@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Nick0603 (http://jsbin.com/macoko/39/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div class="all">
+    <head>
+      <div class="inline-b price .fantsay">
+          NT$200<br><br><br>
+      </div>
+
+      <div class="inline-b red heading yellow-bkc">
+          幸運開獎機
+      </div>
+    <style id="jsbin-css">
+.all{
+    background-color: #E50052;
+    width:657px;
+    padding:2px;
+    height: auto;
+    border: 5px solid #000;
+    font-weight: bold ;
+    color: #fff;
+    font-family: 微軟正黑體;
+    position:absolute;
+    left:35%;
+}
+
+
+.price{
+    margin-top: 8px;
+    margin-left: 7px;
+    letter-spacing: 4px;
+    font-weight:100;
+    font-family: fantasy;
+    font-size:25px;
+    width: 190px;
+}
+
+.big_prize{
+    font-size: 35px;
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+.heading{
+    text-align: center;
+    font-size: 50px;
+    width:auto;
+}
+
+.yellow{
+    color: #FFDA19;
+}
+
+.blue{
+    color: #68D8FF;
+}
+
+.red{
+    color: #f00;
+}
+.black{
+    color: #000;
+}
+
+.yellow-bkc{
+    text-shadow: #ff0 0 1px, #ff0 1px 0, #ff0 -1px 0,#ff0 0 -1px;
+}
+
+
+.black-bkc{
+    text-shadow: #000 0 2px, #000 2px 0, #000 -2px 0,
+    #000 0 -2px, #000 -1.4px -1.4px, #000 +1.4px +1.4px,
+    #000 +1.4px -1.4px, #000 -1.4px +1.4px;
+}
+
+.black-bkc2{
+    text-shadow: #000 0 3px, #000 3px 0, #000 -3px 0,
+    #000 0 -3px, #000 -1.4px -1.4px, #000 +1.4px +1.4px,
+    #000 +1.4px -1.4px, #000 -1.4px +1.4px;
+}
+
+.lucky,.numbers{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.lucky{
+    padding: 3px;
+    border: 5px solid #000;
+    border-bottom: 0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff103+0,c66600+100 */
+    background: #fff103; /* Old browsers */
+    background: -moz-linear-gradient(left, #fff103 0%, #c66600 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #fff103 0%,#c66600 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #fff103 0%,#c66600 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff103', endColorstr='#c66600',GradientType=1 ); /* IE6-9 */
+}
+
+.numbers{
+    width: 625px;
+    margin-top: 0;
+    height: 200px;
+    border: 6px solid #000;
+    background-color: rgb(173, 173, 173);
+}
+
+
+.number{
+    margin: 10px;
+    margin-bottom: 0;
+    width:50px ;
+    height: 50px;
+    color: #000;
+    text-align: center;
+    font-size:25px;
+    line-height: 50px;
+    border: 2px solid #f00;
+    cursor: pointer;
+}
+
+.number_yellow{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9c84a+0,f7d27e+21,edbd5e+41,f2b635+64,efca7f+85,f9c43e+100 */
+    background: #f9c84a; /* Old browsers */
+    background: -moz-linear-gradient(right, #f9c84a 0%, #f7d27e 21%, #edbd5e 41%, #f2b635 64%, #efca7f 85%, #f9c43e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(right, #f9c84a 0%,#f7d27e 21%,#edbd5e 41%,#f2b635 64%,#efca7f 85%,#f9c43e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #f9c84a 0%,#f7d27e 21%,#edbd5e 41%,#f2b635 64%,#efca7f 85%,#f9c43e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c84a', endColorstr='#f9c43e',GradientType=0 ); /* IE6-9 */
+}
+
+.number_red{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cc0000+0,cc4545+22,aa0000+42,a50000+60,a32828+83,e50f00+100 */
+    background: #cc0000; /* Old browsers */
+    background: -moz-linear-gradient(left, #cc0000 0%, #cc4545 22%, #aa0000 42%, #a50000 60%, #a32828 83%, #e50f00 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #cc0000 0%,#cc4545 22%,#aa0000 42%,#a50000 60%,#a32828 83%,#e50f00 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #cc0000 0%,#cc4545 22%,#aa0000 42%,#a50000 60%,#a32828 83%,#e50f00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#e50f00',GradientType=1 ); /* IE6-9 */
+}
+
+.circle{
+    border-radius:100%;
+}
+
+.l_bd{
+    margin: 5px;
+    padding: 5px;
+}
+
+.frist{
+    width: +108.5px;
+    margin-bottom: 5px;
+}
+
+.bd_top{
+    margin: 5px;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.inline-b{
+    display:inline-block;
+}
+
+.game{
+    width: 300px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#db0112+0,bf0008+31,9a0405+68,230e09+100 */
+    background: #db0112; /* Old browsers */
+    background: -moz-linear-gradient(top, #db0112 0%, #bf0008 31%, #9a0405 68%, #230e09 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #db0112 0%,#bf0008 31%,#9a0405 68%,#230e09 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #db0112 0%,#bf0008 31%,#9a0405 68%,#230e09 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db0112', endColorstr='#230e09',GradientType=0 ); /* IE6-9 */
+}
+
+.textalign_right{
+    text-align: right;
+}
+
+.luckynumber{
+    width:50px ;
+    height: 50px;
+    text-align: center;
+    font-style: italic;
+    font-size:30px;
+    position: absolute;
+    cursor: crosshair;
+}
+
+.top{
+    border: 4px solid #000;
+    border-bottom: 0;
+}
+
+.v_mid{
+    border: 4px solid #000;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.bottom{
+    border: 4px solid #000;
+}
+
+
+.bot{
+    width: auto;
+    padding: 9px;
+    font-size: +14.5px;
+}
+
+.b-left,.b-mid,.b-right{
+    margin-right: 5px;
+}
+
+.footer{
+    margin: 5px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.Lucky1{
+    top:640px;
+    left:330px;
+}
+.Lucky2{
+    top:630px;
+    left:400px;
+}
+.Lucky3{
+    top:720px;
+    left:30px;
+}
+.Lucky4{
+    top:700px;
+    left:270px;
+}
+.Lucky5{
+    top:690px;
+    left:480px;
+}
+.Lucky6{
+    top:620px;
+    left:530px;
+}
+.Lucky7{
+    top:650px;
+    left:580px;
+}
+.Lucky8{
+    top:750px;
+    left:220px;
+}
+.Lucky9{
+    top:720px;
+    left:110px;
+}
+.Lucky10{
+    top:760px;
+    left:440px;
+}
+.Lucky11{
+    top:720px;
+    left:550px;
+}
+.Lucky12{
+    top:640px;
+    left:220px;
+}
+.Lucky13{
+    top:665px;
+    left:172px;
+}
+.Lucky14{
+    top:720px;
+    left:353px;
+}
+.Lucky15{
+    top:650px;
+    left:70px;
+}
+</style>
+</head>
+  
+    <div class="lucky">
+      <div class="inline-b">
+
+
+        <div class="bd game top">
+          
+          <div class="inline-b l_bd">
+            <div class=" bd_top">
+              <div class="red yellow-bkc">
+              第1局
+              </div>
+            </div>
+            
+            <div class="black-bkc">
+            對中1個號碼，即得200元
+            </div>
+          </div>
+          
+          <div class="frist inline-b textalign_right" id="game1">
+          </div>
+          
+        </div>
+
+        <div class="bd game top">
+          <div class="textalign_right" id="game2">
+              
+          </div>
+
+          <div class="inline-b l_bd">
+            <div class="red yellow-bkc">
+              第2局<br><br>
+            </div>
+          </div>
+
+          <div class="inline-b black-bkc">
+            <div>
+              對中1個號碼，即得200元<br>
+              對中2個號碼，即得500元
+            </div>
+          </div>
+        </div>
+
+        <div class="bd game top">
+          
+          <div class="textalign_right" id="game3">
+            
+          </div>
+          
+          <div class="inline-b l_bd">
+            <div class="red yellow-bkc">
+              第3局<br><br>
+            </div>
+          </div>
+          <div class="inline-b black-bkc">
+            <div>
+              對中2個號碼，即得500元<br>
+              對中3個號碼，即得5,000元<br>
+            </div>
+          </div>
+        </div>
+
+        <div class="game bottom">
+          
+          <div class="textalign_right" id="game4">
+            
+          </div>
+          <div class="inline-b l_bd">
+            <div class="red yellow-bkc ">
+              第4局<br><br><br>
+            </div>
+          </div>
+
+          <div class="inline-b black-bkc">
+            <div>
+              對中2個號碼，即得500元<br>
+              對中3個號碼，即得5,000元<br>
+              對中4個號碼，即得10,000元
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="inline-b">
+
+      <div class="big_prize">
+        <span id='result1' class="yellow  black-bkc2">
+          頭獎
+        </span>
+        <span id='result2' class="blue black-bkc2 ss">
+          200
+        </span>
+        <span id='result3' class="yellow  black-bkc2">
+          萬元
+        </span>
+      </div>
+
+       <div class="game top">
+         
+         <div class="textalign_right" id="game51">
+           
+         </div>
+         <div class="textalign_right" id="game52">
+           
+         </div>
+         
+        <div class="inline-b l_bd">
+          <div class="red yellow-bkc">
+            第5局<br><br><br>
+          </div>
+        </div>
+         <div class="inline-b black-bkc">
+          <div>
+            對中3個號碼，即得5,000元<br>
+            對中4個號碼，即得10,000元<br>
+            對中5個號碼，即得100,000元
+          </div>
+        </div>
+      </div>
+
+      <div class="bd game bottom">
+        
+        <div class="textalign_right" id="game61">
+          
+        </div>
+        <div class="textalign_right" id="game62">
+          
+        </div>
+        
+        <div class="inline-b l_bd">
+          <div class="red yellow-bkc">
+            第6局<br><br><br>
+          </div>
+        </div>
+
+        <div class="inline-b black-bkc">
+          <div>
+            對中4個號碼，即得10,000元<br>
+            對中5個號碼，即得100,000元<br>
+            對中6個號碼，即得2,000,000元
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+     <div class="numbers">
+        <button type="button" class="show_button btn btn-primary ">
+          顯示幸運號碼
+       </button>
+       <div class="scratcher">
+       </div>
+     </div>
+    
+   
+
+
+    <bottom class=bot>
+      <div class="b-left inline-b black-bkc">
+        <p>
+          遊戲說明：<br><br><br><br>
+        </p>
+      </div>
+
+      <div class="b_mid inline-b black-bkc">
+        <p>
+          1.刮開「幸運號碼」刮區，共有15個幸運號碼。<br>
+          2.第1局至第6局遊戲中，依對中「幸運號碼」<br>
+          &nbsp;&nbsp;&nbsp;數，領取該局遊戲之獎金，各局已領取一個獎<br>
+          &nbsp;&nbsp;&nbsp;項為限。
+        </p>
+      </div>
+
+      <div class="b-right inline-b black-bkc">
+        <p>
+          3.該6局遊戲上印有刮膜，可刮開<br>
+          &nbsp;&nbsp;&nbsp;作為對中「幸運號碼」之記號。<br>
+          4.不可跨局對獎。<br><br>
+         
+        </p>
+      </div>
+    </bottom>
+    <div class="footer">
+       參考圖片：https://ntust.me/n355k<br>
+          製作者：建宇(Nick)
+    </div>
+  </div>
+<script id="jsbin-javascript">
+function getrARadomNumber(n,limit){
+  all_n = limit;
+  var numbers=[];
+  for(var i=1 ; i<=all_n;i++)
+    numbers.push(i);
+  var target=[];
+  for(i=1;i<=n;i++){
+    var target_index=Math.floor(Math.random()*all_n);
+    target.push(numbers[target_index]);
+    var temp = numbers[target_index];
+    numbers[target_index] = numbers[all_n-1];
+    numbers[all_n-1] = temp;
+    all_n--;
+  }
+  return target;
+}
+
+function hover_number_ing(){
+  $(this).css('color','#ffffff');
+}
+
+function hover_number_after(){
+  $(this).css('color','#000000');
+}
+function change_yellow_or_red(){
+     if($(this).hasClass('number_yellow')){
+       $(this).removeClass('number_yellow');
+       $(this).addClass('number_red');
+       $(this).hide(0,function(){
+          $(this).fadeIn(500);   
+       });
+       
+     }else{
+       $(this).removeClass('number_red');
+       $(this).addClass('number_yellow');
+       $(this).hide(0,function(){
+          $(this).fadeIn(500);   
+       });
+     }
+}
+function change_black_or_red(){
+     if($(this).hasClass('black')){
+       $(this).removeClass('black');
+       $(this).addClass('red');
+       $(this).hide(0,function(){
+          $(this).fadeIn(500);   
+       });  
+     }else{
+       $(this).removeClass('red');
+       $(this).addClass('black');
+       $(this).hide(0,function(){
+          $(this).fadeIn(500);   
+       });
+     }
+}
+
+function show_lottery_result(){
+  var index_number = 0;
+  var bool_result=-1;
+  var get_money = 0;
+  var count = 0;
+  for(var i=1;i<=6;i++){
+    count = 0;
+    for(var j=1;j<=i;j++){
+      bool_result=luckynumber.indexOf(game_numbers[index_number],0);
+      if($('p#game'+i+'number'+j).hasClass('number_red')){
+        $('p#game'+i+'number'+j).click();
+      }
+      if(bool_result!=-1){
+        $('p#game'+i+'number'+j).click();
+        $('div#luckynumber'+(bool_result+1)).css('color','red');
+        count++;
+      }
+      index_number++;
+    }
+    if((i<=3&&count>i-2)||(i>3&&count>i-3)){
+      switch(count){
+        case 1:get_money+=200;break;
+        case 2:get_money+=500;break;
+        case 3:get_money+=5000;break;
+        case 4:get_money+=10000;break;
+        case 5:get_money+=100000;break;
+        case 6:get_money+=2000000;break;
+      }
+    }
+  }
+  $('span#result2').removeClass('blue');
+  $('span#result2').addClass('red');
+  if(get_money===0){
+    document.getElementById('result1').innerHTML="哦嗚嗚屋，";
+    document.getElementById('result2').innerHTML="沒有";
+    document.getElementById('result3').innerHTML="中獎";
+    alert('哦嗚嗚，沒有中獎');
+  }else{
+    document.getElementById('result1').innerHTML="獲得";
+    document.getElementById('result2').innerHTML=get_money;
+    document.getElementById('result3').innerHTML="元";
+    alert('恭喜你中獎了，總共 '+get_money+' 元');
+  }
+  $('button.reset').slideDown(1000);
+}
+
+function reset(){
+  $('.number').remove();
+  $('.luckynumber').remove();
+  $('span#result2').removeClass('red');
+  $('span#result2').addClass('blue');
+  document.getElementById('result1').innerHTML="頭獎";
+  document.getElementById('result2').innerHTML="200";
+  document.getElementById('result3').innerHTML="萬元";
+  make_game_number();
+  $('.show_result').hide(0);
+  $('.reset').hide(0);
+  $('button.show_button').show(0);
+  luckynumber=getrARadomNumber(count_limit,49);
+  count_luckynumber=0;
+  position_luckynuber = getrARadomNumber(count_limit,15);
+}
+
+
+var game_numbers=[];
+function addnumbers(frist,n,place,name){
+  var random_numbers =  getrARadomNumber(n,49);
+  for(var i=0;i<n;i++){
+   $("<p>")
+   .appendTo($(place))
+   .addClass('circle number inline-b number_yellow')
+   .attr('id',(name+'number'+(frist+i)))
+   .html(random_numbers[i])
+   .click(change_yellow_or_red)
+   .hover(hover_number_ing,hover_number_after);
+    game_numbers.push(random_numbers[i]);
+  }
+}
+  
+$(document).ready(function(){
+  $('<button>')
+  .appendTo($('div.numbers'))
+  .addClass('btn btn-success show_result')
+  .text('按我自動對獎')
+  .click(show_lottery_result)
+  .hide(0);
+
+  $('<button>')
+  .appendTo($('div.numbers'))
+  .addClass('btn btn-info reset')
+  .text('按我再拿張刮刮樂!!')
+  .click(function(){
+    $('.luckynumber').remove();
+    $('.all').slideUp(3000,function(){
+      reset();
+      $(this).slideDown(2000);
+    });
+  })
+  .hide(0);
+
+
+  $('.all').hide(0,function(){
+    $(this).fadeIn(500);   
+  });
+  
+  reset();
+}); 
+
+
+  function  make_game_number(){
+    var game1 = document.getElementById('game1');
+    var game2 = document.getElementById('game2');
+    var game3 = document.getElementById('game3');
+    var game4 = document.getElementById('game4');
+    var game51 = document.getElementById('game51');
+    var game52 = document.getElementById('game52');
+    var game61 = document.getElementById('game61');
+    var game62 = document.getElementById('game62');
+    addnumbers(1,1,game1,'game1');
+    addnumbers(1,2,game2,'game2');
+    addnumbers(1,3,game3,'game3');
+    addnumbers(1,4,game4,'game4');
+    addnumbers(1,2,game51,'game5');
+    addnumbers(3,3,game52,'game5');
+    addnumbers(1,2,game61,'game6');
+    addnumbers(3,4,game62,'game6');
+  }
+
+
+
+var count_limit=15;
+var luckynumber=getrARadomNumber(count_limit,49);
+var count_luckynumber=0;
+var position_luckynuber = getrARadomNumber(count_limit,15);
+
+$('button.show_button').click(function() {
+  if(count_luckynumber < count_limit){
+    count_luckynumber++;
+    $('<div>')
+      .appendTo($('div.numbers'))
+      .addClass('luckynumber black  Lucky'+position_luckynuber[count_luckynumber-1])
+      .text(luckynumber[count_luckynumber-1])
+      .attr('id','luckynumber'+(count_luckynumber))
+      .hover(hover_number_ing,hover_number_after);
+    if(count_luckynumber==15){
+      alert('你的幸運號碼已經開完囉!!!');
+    $(this).slideUp(1000,function(){
+      $('button.show_result').slideDown(1000);
+    });
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

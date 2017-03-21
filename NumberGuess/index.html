@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="CSS/Main.css" rel="stylesheet" type="text/css" />
+  <script src="Javascript/Main.js"></script>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Nick's NumberGuess</title>
+</head>
+<body>
+  <div class="output">
+    <p>
+     <label for="text">終極密碼介於</label>
+      <span id="lowernum">0</span>
+      <label for="text">~</label>
+      <span id="uppernum">100</span>
+      <label for="text">間</label>
+    </p>
+
+    <p>
+      <label for="text">已經花了</label>
+      <span id="count">0</span>
+      <label for="text">次</label>
+    </p>
+  </div>
+
+  <div class="inputs">
+    <div class="left">
+      <label for="text">我想猜</label>
+    </div>
+    
+    <div class="left input_div">
+      <input type="text"  id="number_input">
+      <input type="button" onclick= "Guess()" id="btn" value="確定">
+    </div>
+  </div>
+
+</body>
+</html>
